@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace THPS.CombatSystem
 {
+    [DisableAutoCreation]
     public partial struct QueueDamageOverTimeSystem : ISystem
     {
         public void OnCreate(ref SystemState state)

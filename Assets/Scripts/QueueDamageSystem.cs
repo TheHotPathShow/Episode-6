@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 namespace THPS.CombatSystem
 {
     // This system would be replaced with multiple systems through your codebase that apply damage, healing, etc.
+    [DisableAutoCreation]
     public partial struct QueueDamageSystem : ISystem
     {
         private ComponentLookup<DamageProperties> _damagePropertiesLookup;
