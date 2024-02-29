@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public struct DamageEntityPrefabs : IComponentData
     {

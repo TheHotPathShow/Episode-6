@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine.InputSystem;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public partial struct QueueDamageOverTimeSystem : ISystem
     {

@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public struct MaxHitPoints : IComponentData
     {

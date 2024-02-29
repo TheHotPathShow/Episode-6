@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using Unity.Rendering;
 using UnityEngine;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public class HitPointsAuthoring : MonoBehaviour
     {

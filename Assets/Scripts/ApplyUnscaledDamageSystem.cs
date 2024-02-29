@@ -2,7 +2,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public partial struct ApplyUnscaledDamageSystem : ISystem
     {

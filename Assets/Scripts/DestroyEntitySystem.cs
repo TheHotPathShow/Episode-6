@@ -2,7 +2,7 @@
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     [UpdateInGroup(typeof(SimulationSystemGroup), OrderLast = true)]
     public partial struct DestroyEntitySystem : ISystem

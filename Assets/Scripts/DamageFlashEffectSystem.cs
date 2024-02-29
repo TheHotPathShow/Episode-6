@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using Unity.Rendering;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public partial struct DamageFlashEffectSystem : ISystem
     {

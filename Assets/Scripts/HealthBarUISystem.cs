@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     public partial struct HealthBarUISystem : ISystem
     {

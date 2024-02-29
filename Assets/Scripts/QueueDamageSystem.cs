@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine.InputSystem;
 
-namespace THPS.DamageSystem
+namespace THPS.CombatSystem
 {
     // This system would be replaced with multiple systems through your codebase that apply damage, healing, etc.
     public partial struct QueueDamageSystem : ISystem
