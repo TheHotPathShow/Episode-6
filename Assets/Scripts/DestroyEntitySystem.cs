@@ -22,6 +22,12 @@ namespace THPS.CombatSystem
                         ecb.AddComponent<DestroyEntityTag>(child.Value);
                     }
                 }
+
+                if (SystemAPI.HasComponent<GameOverOnDestroy>(entity))
+                {
+                    var gameOverEntity = ecb.CreateEntity();
+                    ecb.AddComponent<GameOverTag>(gameOverEntity);
+                }
             }
             ecb.Playback(state.EntityManager);
         }

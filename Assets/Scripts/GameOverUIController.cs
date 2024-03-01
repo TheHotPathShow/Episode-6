@@ -49,7 +49,12 @@ namespace THPS.CombatSystem
             _uiPanelObject.SetActive(false);
         }
 
-        public IEnumerator ShowGameOverUI()
+        public void ShowGameOverUI()
+        {
+            StartCoroutine(GameOverUI());
+        }
+
+        private IEnumerator GameOverUI()
         {
             _uiPanelObject.SetActive(true);
             _audioSource.Play();

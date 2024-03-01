@@ -6,6 +6,11 @@ namespace THPS.CombatSystem
 {
     public partial struct SpawnCapabilitySystem : ISystem
     {
+        public void OnCreate(ref SystemState state)
+        {
+            state.RequireForUpdate<GamePlayingTag>();
+        }
+
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {

@@ -19,6 +19,8 @@ namespace THPS.CombatSystem
             {
                 Value = inputActions
             });
+            
+            state.RequireForUpdate<GamePlayingTag>();
         }
 
         public void OnUpdate(ref SystemState state)
@@ -28,9 +30,9 @@ namespace THPS.CombatSystem
             var sprintInput = inputActionMap.PlayerSprint.IsPressed();
             var capabilityActionInput = inputActionMap.PlayerCapabilityAction.WasPressedThisFrame();
             
-            foreach (var (playerMoveInput, playerSprintMultiplier, playerCapabilityAction, entity) in SystemAPI.Query<RefRW<PlayerMoveInput>, 
+            foreach (var (playerMoveInput, playerSprintMultiplier, playerCapabilityAction) in SystemAPI.Query<RefRW<PlayerMoveInput>, 
                              EnabledRefRW<PlayerSprintMultiplier>, EnabledRefRW<PlayerCapabilityAction>>()
-                         .WithPresent<PlayerSprintMultiplier, PlayerCapabilityAction>().WithEntityAccess())
+                         .WithPresent<PlayerSprintMultiplier, PlayerCapabilityAction>().WithAll<PlayerTag>())
             {
                 playerMoveInput.ValueRW.Value = moveInput;
                 

@@ -4,6 +4,7 @@ using Unity.Mathematics;
 namespace THPS.CombatSystem
 {
     public struct NewPlayerTag : IComponentData {}
+    public struct PlayerTag : IComponentData {}
     public struct NewEnemyTag : IComponentData {}
 
     public struct PlayerMoveInput : IComponentData

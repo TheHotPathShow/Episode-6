@@ -21,7 +21,9 @@ namespace THPS.CombatSystem
     {
         public float Value;
     }
-    
+
+    public struct GamePlayingTag : IComponentData {};
+    public struct GameOverTag : IComponentData {};
     public struct GameOverOnDestroy : IComponentData {}
 
     public class SpawnGameObjectOnDestroy : IComponentData
@@ -38,5 +40,11 @@ namespace THPS.CombatSystem
     {
         public int HitPoints;
         public DamageType DamageType;
+    }
+
+    public struct SpawnCapabilityTimer : IComponentData
+    {
+        public float Timer;
+        public float Interval;
     }
 }

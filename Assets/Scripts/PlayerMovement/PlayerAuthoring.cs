@@ -13,6 +13,7 @@ namespace THPS.CombatSystem
             public override void Bake(PlayerAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent<PlayerTag>(entity);
                 AddComponent(entity, new PlayerMoveSpeed { Value = authoring.PlayerMoveSpeed });
                 AddComponent<PlayerMoveInput>(entity);
                 AddComponent<NewPlayerTag>(entity);
