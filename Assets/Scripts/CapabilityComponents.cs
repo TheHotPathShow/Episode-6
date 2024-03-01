@@ -31,7 +31,12 @@ namespace THPS.CombatSystem
         public GameObject Value;
     }
 
-    public class SpawnEntityOnDestroy : IComponentData
+    public class SpawnGameObjectOnHit : IComponentData
+    {
+        public GameObject Value;
+    }
+
+    public struct SpawnEntityOnDestroy : IComponentData
     {
         public Entity Value;
     }
@@ -46,5 +51,15 @@ namespace THPS.CombatSystem
     {
         public float Timer;
         public float Interval;
+    }
+
+    public struct DestroyOnTimer : IComponentData
+    {
+        public float Value;
+    }
+
+    public struct DestroyAfterHits : IComponentData
+    {
+        public int Value;
     }
 }

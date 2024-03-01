@@ -2,7 +2,7 @@
 
 namespace THPS.CombatSystem
 {
-    public partial struct CapabilityTimerSystem : ISystem
+    public partial struct SpawnCapabilityOnTimerSystem : ISystem
     {
         public void OnCreate(ref SystemState state)
         {

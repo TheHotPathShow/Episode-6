@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 8930112085066329250}
   - component: {fileID: -6067172118946948851}
   - component: {fileID: -5607349461372116086}
+  - component: {fileID: 3243616523113784798}
+  - component: {fileID: -299476694860166758}
+  - component: {fileID: -1505984544819244525}
   m_Layer: 0
   m_Name: NormalProjectilePrefab
   m_TagString: Untagged
@@ -322,3 +325,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageOnTrigger: 10
   DamageType: 1
+--- !u!114 &3243616523113784798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200942020751422415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ad5ceb89954d9498bf97276ac51eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnTimer: 5
+--- !u!114 &-299476694860166758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200942020751422415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e44db166a4023ba470ac971ec2c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyAfterHits: 2
+--- !u!114 &-1505984544819244525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200942020751422415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681ad7062ef04299ae25c82845d22e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnGameObjectOnHit: {fileID: 2752617797441375497, guid: 1fd1582e9bb3db24c9e9127d903665a2,
+    type: 3}

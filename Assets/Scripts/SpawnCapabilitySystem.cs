@@ -4,6 +4,8 @@ using Unity.Transforms;
 
 namespace THPS.CombatSystem
 {
+    [UpdateInGroup(typeof(SimulationSystemGroup))]
+    [UpdateBefore(typeof(TransformSystemGroup))]
     public partial struct SpawnCapabilitySystem : ISystem
     {
         public void OnCreate(ref SystemState state)
