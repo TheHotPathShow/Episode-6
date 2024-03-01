@@ -13,6 +13,7 @@ namespace THPS.CombatSystem.CapabilityAuthoring
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddBuffer<HitBufferElement>(entity);
                 AddComponent(entity, new EntityTeam { Value = authoring.Team });
+                AddComponent<CastingEntity>(entity);
             }
         }
     }

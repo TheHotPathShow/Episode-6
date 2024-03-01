@@ -62,4 +62,21 @@ namespace THPS.CombatSystem
     {
         public int Value;
     }
+
+    public struct MoveToTarget : IComponentData
+    {
+        public Entity Target;
+        public float MoveSpeed;
+        public float DetectionRadius;
+    }
+
+    public struct CastingEntity : IComponentData
+    {
+        public Entity Value;
+    }
+
+    public struct HealOnUse : IComponentData
+    {
+        public int Value;
+    }
 }

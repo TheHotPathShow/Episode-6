@@ -16,12 +16,9 @@ GameObject:
   - component: {fileID: 8930112085066329250}
   - component: {fileID: -5607349461372116086}
   - component: {fileID: 3243616523113784798}
-  - component: {fileID: -299476694860166758}
   - component: {fileID: -1505984544819244525}
-  - component: {fileID: 1380216626695858716}
-  - component: {fileID: -2831242081468767077}
   m_Layer: 0
-  m_Name: NormalProjectilePrefab
+  m_Name: ExplosionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,9 +33,9 @@ Transform:
   m_GameObject: {fileID: 8200942020751422415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99, y: 1, z: -2.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
+  - {fileID: 2100000, guid: f8a9da92880147147b2a978838f94d3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,8 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46198b1d7603443daa889d203fa75b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageOnTrigger: 10
-  DamageType: 1
+  DamageOnTrigger: 50
+  DamageType: 2
 --- !u!114 &3243616523113784798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,20 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ad5ceb89954d9498bf97276ac51eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyOnTimer: 5
---- !u!114 &-299476694860166758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8200942020751422415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 537e44db166a4023ba470ac971ec2c35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyAfterHits: 1
+  DestroyOnTimer: 1.5
 --- !u!114 &-1505984544819244525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,30 +337,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnGameObjectOnHit: {fileID: 2752617797441375497, guid: 1fd1582e9bb3db24c9e9127d903665a2,
     type: 3}
---- !u!114 &1380216626695858716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8200942020751422415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304ed24c271b46e0bc49106a4c3c991f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  DetectionRadius: 10
---- !u!114 &-2831242081468767077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8200942020751422415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd00404070c94ae4a2e169dd58355c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealOnUse: 10

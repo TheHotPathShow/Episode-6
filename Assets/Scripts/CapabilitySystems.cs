@@ -93,23 +93,44 @@ namespace THPS.CombatSystem
     {
         public void OnUpdate(ref SystemState state)
         {
-            var ecb = new EntityCommandBuffer(state.WorldUpdateAllocator);
             var teamLookup = SystemAPI.GetComponentLookup<EntityTeam>(true);
 
-            foreach (var (hitBuffer, spawnGameObjectOnHit, transform, entity) in SystemAPI
-                         .Query<DynamicBuffer<HitBufferElement>, SpawnGameObjectOnHit, LocalTransform>()
+            foreach (var (hitBuffer, spawnGameObjectOnHit, entity) in SystemAPI
+                         .Query<DynamicBuffer<HitBufferElement>, SpawnGameObjectOnHit>()
                          .WithEntityAccess())
             {
                 foreach (var hit in hitBuffer)
                 {
                     if (hit.IsHandled) continue;
                     if(teamLookup[entity].Value == teamLookup[hit.HitEntity].Value) continue;
-                    var spawnPosition = transform.Position;
-                    var spawnRotation = transform.Rotation;
+                    var spawnPosition = hit.Position;
+                    var spawnRotation = Quaternion.Euler(hit.Normal);
 
                     Object.Instantiate(spawnGameObjectOnHit.Value, spawnPosition, spawnRotation);
                 }
             }
+        }
+    }
+
+    [UpdateInGroup(typeof(CapabilitySystemGroup))]
+    public partial struct HealOnUseSystem : ISystem
+    {
+        public void OnUpdate(ref SystemState state)
+        {
+            var ecb = new EntityCommandBuffer(state.WorldUpdateAllocator);
+            foreach (var (healOnUse, castingEntity, entity) in SystemAPI.Query<HealOnUse, CastingEntity>().WithEntityAccess())
+            {
+                ecb.AppendToBuffer(castingEntity.Value, new DamageBufferElement
+                {
+                    HitPoints = healOnUse.Value,
+                    DamageTeam = SystemAPI.GetComponent<EntityTeam>(castingEntity.Value).Value,
+                    DamageType = DamageType.Healing
+                });
+                
+                ecb.RemoveComponent<HealOnUse>(entity);
+            }
+
+            ecb.Playback(state.EntityManager);
         }
     }
 

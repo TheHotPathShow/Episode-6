@@ -17,13 +17,14 @@ namespace THPS.CombatSystem
         public void OnUpdate(ref SystemState state)
         {
             var ecb = new EntityCommandBuffer(state.WorldUpdateAllocator);
-            foreach (var (capabilityPrefab, transform, entityTeam) in SystemAPI.Query<CapabilityPrefab, LocalTransform, EntityTeam>()
-                         .WithAll<PlayerCapabilityAction>())
+            foreach (var (capabilityPrefab, transform, entityTeam, entity) in SystemAPI.Query<CapabilityPrefab, LocalTransform, EntityTeam>()
+                         .WithAll<PlayerCapabilityAction>().WithEntityAccess())
             {
                 // If implementing a cooldown, check the cooldown timer here first before spawning
                 var newCapability = ecb.Instantiate(capabilityPrefab.Value);
                 ecb.SetComponent(newCapability, transform);
                 ecb.SetComponent(newCapability, entityTeam);
+                ecb.SetComponent(newCapability, new CastingEntity { Value = entity });
             }
             
             ecb.Playback(state.EntityManager);
