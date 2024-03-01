@@ -4,6 +4,8 @@ using Unity.Mathematics;
 namespace THPS.CombatSystem
 {
     public struct NewPlayerTag : IComponentData {}
+    public struct NewEnemyTag : IComponentData {}
+
     public struct PlayerMoveInput : IComponentData
     {
         public float2 Value;
@@ -18,4 +20,6 @@ namespace THPS.CombatSystem
     {
         public float Value;
     }
+    
+    public struct PlayerCapabilityAction : IComponentData, IEnableableComponent {}
 }

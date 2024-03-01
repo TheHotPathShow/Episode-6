@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "PlayerJump",
+                    "name": "PlayerCapabilityAction",
                     "type": "Button",
                     "id": "5069da74-3275-4963-a695-29639b05a6c8",
                     "expectedControlType": "Button",
@@ -151,7 +151,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlayerJump",
+                    "action": "PlayerCapabilityAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -37,7 +37,7 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""PlayerJump"",
+                    ""name"": ""PlayerCapabilityAction"",
                     ""type"": ""Button"",
                     ""id"": ""5069da74-3275-4963-a695-29639b05a6c8"",
                     ""expectedControlType"": ""Button"",
@@ -173,7 +173,7 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlayerJump"",
+                    ""action"": ""PlayerCapabilityAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -196,7 +196,7 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
         // DefaultMap
         m_DefaultMap = asset.FindActionMap("DefaultMap", throwIfNotFound: true);
         m_DefaultMap_PlayerMove = m_DefaultMap.FindAction("PlayerMove", throwIfNotFound: true);
-        m_DefaultMap_PlayerJump = m_DefaultMap.FindAction("PlayerJump", throwIfNotFound: true);
+        m_DefaultMap_PlayerCapabilityAction = m_DefaultMap.FindAction("PlayerCapabilityAction", throwIfNotFound: true);
         m_DefaultMap_PlayerSprint = m_DefaultMap.FindAction("PlayerSprint", throwIfNotFound: true);
     }
 
@@ -260,14 +260,14 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_DefaultMap;
     private List<IDefaultMapActions> m_DefaultMapActionsCallbackInterfaces = new List<IDefaultMapActions>();
     private readonly InputAction m_DefaultMap_PlayerMove;
-    private readonly InputAction m_DefaultMap_PlayerJump;
+    private readonly InputAction m_DefaultMap_PlayerCapabilityAction;
     private readonly InputAction m_DefaultMap_PlayerSprint;
     public struct DefaultMapActions
     {
         private @TurboInputActions m_Wrapper;
         public DefaultMapActions(@TurboInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @PlayerMove => m_Wrapper.m_DefaultMap_PlayerMove;
-        public InputAction @PlayerJump => m_Wrapper.m_DefaultMap_PlayerJump;
+        public InputAction @PlayerCapabilityAction => m_Wrapper.m_DefaultMap_PlayerCapabilityAction;
         public InputAction @PlayerSprint => m_Wrapper.m_DefaultMap_PlayerSprint;
         public InputActionMap Get() { return m_Wrapper.m_DefaultMap; }
         public void Enable() { Get().Enable(); }
@@ -281,9 +281,9 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
             @PlayerMove.started += instance.OnPlayerMove;
             @PlayerMove.performed += instance.OnPlayerMove;
             @PlayerMove.canceled += instance.OnPlayerMove;
-            @PlayerJump.started += instance.OnPlayerJump;
-            @PlayerJump.performed += instance.OnPlayerJump;
-            @PlayerJump.canceled += instance.OnPlayerJump;
+            @PlayerCapabilityAction.started += instance.OnPlayerCapabilityAction;
+            @PlayerCapabilityAction.performed += instance.OnPlayerCapabilityAction;
+            @PlayerCapabilityAction.canceled += instance.OnPlayerCapabilityAction;
             @PlayerSprint.started += instance.OnPlayerSprint;
             @PlayerSprint.performed += instance.OnPlayerSprint;
             @PlayerSprint.canceled += instance.OnPlayerSprint;
@@ -294,9 +294,9 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
             @PlayerMove.started -= instance.OnPlayerMove;
             @PlayerMove.performed -= instance.OnPlayerMove;
             @PlayerMove.canceled -= instance.OnPlayerMove;
-            @PlayerJump.started -= instance.OnPlayerJump;
-            @PlayerJump.performed -= instance.OnPlayerJump;
-            @PlayerJump.canceled -= instance.OnPlayerJump;
+            @PlayerCapabilityAction.started -= instance.OnPlayerCapabilityAction;
+            @PlayerCapabilityAction.performed -= instance.OnPlayerCapabilityAction;
+            @PlayerCapabilityAction.canceled -= instance.OnPlayerCapabilityAction;
             @PlayerSprint.started -= instance.OnPlayerSprint;
             @PlayerSprint.performed -= instance.OnPlayerSprint;
             @PlayerSprint.canceled -= instance.OnPlayerSprint;
@@ -320,7 +320,7 @@ public partial class @TurboInputActions: IInputActionCollection2, IDisposable
     public interface IDefaultMapActions
     {
         void OnPlayerMove(InputAction.CallbackContext context);
-        void OnPlayerJump(InputAction.CallbackContext context);
+        void OnPlayerCapabilityAction(InputAction.CallbackContext context);
         void OnPlayerSprint(InputAction.CallbackContext context);
     }
 }

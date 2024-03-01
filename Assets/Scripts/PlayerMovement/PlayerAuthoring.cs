@@ -18,6 +18,8 @@ namespace THPS.CombatSystem
                 AddComponent<NewPlayerTag>(entity);
                 AddComponent(entity, new PlayerSprintMultiplier { Value = authoring.PlayerSprintMultiplier });
                 SetComponentEnabled<PlayerSprintMultiplier>(entity, false);
+                AddComponent<PlayerCapabilityAction>(entity);
+                SetComponentEnabled<PlayerCapabilityAction>(entity, false);
             }
         }
     }

@@ -26,15 +26,17 @@ namespace THPS.CombatSystem
             var inputActionMap = SystemAPI.ManagedAPI.GetComponent<Singleton>(state.SystemHandle).Value.DefaultMap;
             var moveInput = inputActionMap.PlayerMove.ReadValue<Vector2>();
             var sprintInput = inputActionMap.PlayerSprint.IsPressed();
+            var capabilityActionInput = inputActionMap.PlayerCapabilityAction.WasPressedThisFrame();
             
-            foreach (var (playerMoveInput, playerSprintMultiplier, entity) in SystemAPI.Query<RefRW<PlayerMoveInput>, 
-                             EnabledRefRW<PlayerSprintMultiplier>>()
-                         .WithPresent<PlayerSprintMultiplier>().WithEntityAccess())
+            foreach (var (playerMoveInput, playerSprintMultiplier, playerCapabilityAction, entity) in SystemAPI.Query<RefRW<PlayerMoveInput>, 
+                             EnabledRefRW<PlayerSprintMultiplier>, EnabledRefRW<PlayerCapabilityAction>>()
+                         .WithPresent<PlayerSprintMultiplier, PlayerCapabilityAction>().WithEntityAccess())
             {
                 playerMoveInput.ValueRW.Value = moveInput;
                 
                 // Set enabled state of a component
                 playerSprintMultiplier.ValueRW = sprintInput;
+                playerCapabilityAction.ValueRW = capabilityActionInput;
             }
         }
     }

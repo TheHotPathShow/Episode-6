@@ -81,7 +81,7 @@ namespace THPS.CombatSystem
                 Normal = hitNormal
             };
 
-            HitBufferLookup[hitEntity].Add(newHitElement);
+            HitBufferLookup[triggerEntity].Add(newHitElement);
         }
     }
 }

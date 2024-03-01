@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0f29e3c1c576f6641b9e474f6b194480, type: 2}
+  - {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,12 +95,11 @@ GameObject:
   - component: {fileID: 8303016721796249339}
   - component: {fileID: 1743288837645857669}
   - component: {fileID: 485725952970729452}
-  - component: {fileID: 2553682099752174551}
   - component: {fileID: 7630720654468022055}
   - component: {fileID: 2492792938526612551}
-  - component: {fileID: 2943239023585533336}
+  - component: {fileID: 3963557003001249800}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHitPoints: 100
-  Team: 2
+  Team: 1
   MultiplyPhysicalDamage: 0
   PhysicalDamageMultiplier: 1
   MultiplyMagicDamage: 0
@@ -195,20 +194,6 @@ MonoBehaviour:
   HealthBarUIOffset: {x: 0, y: 1.5, z: 0}
   FlashTime: 0.25
   ShouldIgnoreDamageMultiplication: 0
---- !u!114 &2553682099752174551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7309665882822782262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730db5710a9e3b54ba37da0a635d0f68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerMoveSpeed: 5
-  PlayerSprintMultiplier: 1.5
 --- !u!54 &7630720654468022055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -379,7 +364,7 @@ MonoBehaviour:
         Tag07: 0
     m_SerializedVersion: 1
   m_SerializedVersion: 1
---- !u!114 &2943239023585533336
+--- !u!114 &3963557003001249800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -388,8 +373,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7309665882822782262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d130d1af410492e93df059bccb6ce41, type: 3}
+  m_Script: {fileID: 11500000, guid: fa61968f13da40d6a3d7e6e6c713248e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CapabilityPrefab: {fileID: 8200942020751422415, guid: 11501895335f2ca45a2736aede23d351,
-    type: 3}

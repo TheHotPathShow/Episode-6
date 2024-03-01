@@ -35,7 +35,7 @@ namespace THPS.CombatSystem
     {
         public TeamType Value;
     }
-    
+
     // Queues damage elements throughout duration of the frame so they can all be applied once at the end of the frame.
     // Avoids the problem where multiple damage elements are applied to a single entity and only one actually applies.
     [InternalBufferCapacity(1)]

@@ -11,8 +11,8 @@ namespace THPS.CombatSystem
         public void OnUpdate(ref SystemState state)
         {
             var ecb = new EntityCommandBuffer(Allocator.Temp);
-            foreach (var (physicsMass, entity) in SystemAPI.Query<RefRW<PhysicsMass>>().WithAll<NewPlayerTag>()
-                         .WithEntityAccess())
+            foreach (var (physicsMass, entity) in SystemAPI.Query<RefRW<PhysicsMass>>()
+                         .WithAny<NewPlayerTag, NewEnemyTag>().WithEntityAccess())
             {
                 physicsMass.ValueRW.InverseInertia[0] = 0;
                 physicsMass.ValueRW.InverseInertia[1] = 0;
