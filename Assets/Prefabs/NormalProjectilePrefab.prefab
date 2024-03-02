@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 8262922258039003919}
   - component: {fileID: 8060633720557257974}
   - component: {fileID: 8930112085066329250}
-  - component: {fileID: -5607349461372116086}
-  - component: {fileID: 3243616523113784798}
-  - component: {fileID: -299476694860166758}
-  - component: {fileID: -1505984544819244525}
-  - component: {fileID: 1380216626695858716}
-  - component: {fileID: -2831242081468767077}
+  - component: {fileID: 6132077411242416616}
+  - component: {fileID: 1903893894547226761}
+  - component: {fileID: 6851540718403743326}
+  - component: {fileID: -4559451607354615571}
+  - component: {fileID: -7497398652372780451}
+  - component: {fileID: 5150781780105344404}
   m_Layer: 0
   m_Name: NormalProjectilePrefab
   m_TagString: Untagged
@@ -298,8 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d2d479b19d4f9c85d863f18d8b73f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Team: 0
---- !u!114 &-5607349461372116086
+--- !u!114 &6132077411242416616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,9 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46198b1d7603443daa889d203fa75b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageOnTrigger: 10
+  DamageOnTrigger: 15
   DamageType: 1
---- !u!114 &3243616523113784798
+--- !u!114 &1903893894547226761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnTimer: 5
---- !u!114 &-299476694860166758
+--- !u!114 &6851540718403743326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,8 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537e44db166a4023ba470ac971ec2c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyAfterHits: 1
---- !u!114 &-1505984544819244525
+  DestroyAfterHits: 2
+--- !u!114 &-4559451607354615571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,7 +352,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnGameObjectOnHit: {fileID: 2752617797441375497, guid: 1fd1582e9bb3db24c9e9127d903665a2,
     type: 3}
---- !u!114 &1380216626695858716
+--- !u!114 &-7497398652372780451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200942020751422415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd00404070c94ae4a2e169dd58355c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealOnUse: 10
+--- !u!114 &5150781780105344404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,16 +379,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 10
   DetectionRadius: 10
---- !u!114 &-2831242081468767077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8200942020751422415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd00404070c94ae4a2e169dd58355c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealOnUse: 10

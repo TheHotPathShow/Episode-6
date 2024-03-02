@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -5607349461372116086}
   - component: {fileID: 3243616523113784798}
   - component: {fileID: -1505984544819244525}
+  - component: {fileID: 8538295062286844252}
   m_Layer: 0
   m_Name: ExplosionPrefab
   m_TagString: Untagged
@@ -295,7 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d2d479b19d4f9c85d863f18d8b73f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Team: 0
 --- !u!114 &-5607349461372116086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,3 +337,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnGameObjectOnHit: {fileID: 2752617797441375497, guid: 1fd1582e9bb3db24c9e9127d903665a2,
     type: 3}
+--- !u!114 &8538295062286844252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200942020751422415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd3e002c0b44f93be790667b79a2c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CapabilityMoveSpeed: 5

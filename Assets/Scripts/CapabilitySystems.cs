@@ -72,7 +72,8 @@ namespace THPS.CombatSystem
             var ecb = new EntityCommandBuffer(state.WorldUpdateAllocator);
             var teamLookup = SystemAPI.GetComponentLookup<EntityTeam>(true);
             
-            foreach (var (destroyAfterHits, hitBuffer, entity) in SystemAPI.Query<RefRW<DestroyAfterHits>, DynamicBuffer<HitBufferElement>>().WithEntityAccess())
+            foreach (var (destroyAfterHits, hitBuffer, entity) in SystemAPI.Query<RefRW<DestroyAfterHits>, 
+                         DynamicBuffer<HitBufferElement>>().WithEntityAccess())
             {
                 foreach (var hit in hitBuffer)
                 {
@@ -120,6 +121,7 @@ namespace THPS.CombatSystem
             var ecb = new EntityCommandBuffer(state.WorldUpdateAllocator);
             foreach (var (healOnUse, castingEntity, entity) in SystemAPI.Query<HealOnUse, CastingEntity>().WithEntityAccess())
             {
+                if (!SystemAPI.HasBuffer<DamageBufferElement>(castingEntity.Value)) continue;
                 ecb.AppendToBuffer(castingEntity.Value, new DamageBufferElement
                 {
                     HitPoints = healOnUse.Value,
@@ -137,26 +139,17 @@ namespace THPS.CombatSystem
     [UpdateInGroup(typeof(CapabilitySystemGroup), OrderLast = true)]
     public partial struct HandleHitBufferSystem : ISystem
     {
-        private EntityQuery _hitBufferQuery;
-
-        public void OnCreate(ref SystemState state)
-        {
-            _hitBufferQuery = state.GetEntityQuery(ComponentType.ReadWrite<HitBufferElement>());
-        }
-
         public void OnUpdate(ref SystemState state)
         {
-            var triggerEntities = _hitBufferQuery.ToEntityArray(state.WorldUpdateAllocator);
             var hitBufferLookup = SystemAPI.GetBufferLookup<HitBufferElement>();
-
+            var triggerEntities = SystemAPI.QueryBuilder().WithAll<HitBufferElement>().Build().ToEntityArray(state.WorldUpdateAllocator);
+            
             foreach (var triggerEntity in triggerEntities)
             {
                 var hitBuffer = hitBufferLookup[triggerEntity];
                 for (var i = 0; i < hitBuffer.Length; i++)
                 {
-                    var hit = hitBuffer[i];
-                    hit.IsHandled = true;
-                    hitBuffer[i] = hit;
+                    hitBuffer.ElementAt(i).IsHandled = true;
                 }
             }
         }
